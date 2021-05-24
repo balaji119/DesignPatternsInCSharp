@@ -1,12 +1,15 @@
-public class BrushTool : ITool
+namespace DesignPatternsInCSharp.State
 {
-    public void MouseDown()
+    public class BrushTool : ITool
     {
-        System.Console.WriteLine("Brush tool selected.");
-    }
+        public void MouseDown()
+        {
+            System.Console.WriteLine("Brush tool selected.");
+        }
 
-    public void MouseUp()
-    {
-        System.Console.WriteLine("Draw a line.");
+        public void MouseUp()
+        {
+            System.Console.WriteLine("Draw a line.");
+        }
     }
 }

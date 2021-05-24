@@ -1,12 +1,15 @@
-public class EraseTool : ITool
+namespace DesignPatternsInCSharp.State
 {
-    public void MouseDown()
+    public class EraseTool : ITool
     {
-        System.Console.WriteLine("Erase tool selected.");
-    }
+        public void MouseDown()
+        {
+            System.Console.WriteLine("Erase tool selected.");
+        }
 
-    public void MouseUp()
-    {
-        System.Console.WriteLine("Erase.");
+        public void MouseUp()
+        {
+            System.Console.WriteLine("Erase.");
+        }
     }
 }

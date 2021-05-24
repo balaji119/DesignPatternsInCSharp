@@ -1,12 +1,15 @@
-public class SelectionTool : ITool
+namespace DesignPatternsInCSharp.State
 {
-    public void MouseDown()
+    public class SelectionTool : ITool
     {
-        System.Console.WriteLine("Slection tool selected.");
-    }
+        public void MouseDown()
+        {
+            System.Console.WriteLine("Slection tool selected.");
+        }
 
-    public void MouseUp()
-    {
-        System.Console.WriteLine("Draw a rectange.");
+        public void MouseUp()
+        {
+            System.Console.WriteLine("Draw a rectange.");
+        }
     }
 }
