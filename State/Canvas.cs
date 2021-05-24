@@ -1,24 +1,29 @@
-public class Canvas
+namespace DesignPatternsInCSharp.State
 {
-    private ITool currentTool;
-
-    public ITool CurrentTool
+    public class Canvas
     {
-        get
-        {
-            return currentTool;
-        }
-        set
-        {
-            currentTool = value;
-        }
-    }
+        private ITool currentTool;
 
-    public void MouseDown(){
-        currentTool.MouseDown();
-    }
+        public ITool CurrentTool
+        {
+            get
+            {
+                return currentTool;
+            }
+            set
+            {
+                currentTool = value;
+            }
+        }
 
-    public void MouseUp(){
-        currentTool.MouseUp();
+        public void MouseDown()
+        {
+            currentTool.MouseDown();
+        }
+
+        public void MouseUp()
+        {
+            currentTool.MouseUp();
+        }
     }
 }
