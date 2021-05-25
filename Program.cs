@@ -1,5 +1,6 @@
 ﻿using DesignPatternsInCSharp.Iterator;
 using DesignPatternsInCSharp.State;
+using DesignPatternsInCSharp.Strategy;
 using System;
 
 namespace DesignPatternsInCSharp
@@ -9,6 +10,7 @@ namespace DesignPatternsInCSharp
         static void Main(string[] args)
         {
             // State pattern test.
+            Console.WriteLine("\nState Pattern Test");
             var canvas = new Canvas
             {
                 CurrentTool = new SelectionTool()
@@ -17,6 +19,7 @@ namespace DesignPatternsInCSharp
             canvas.MouseUp();
 
             // Iterator pattern test.
+            Console.WriteLine("\nIterator Pattern Test");
             var browseHistory = new BrowseHistory();
             browseHistory.Push("url1");
             browseHistory.Push("url2");
@@ -26,6 +29,13 @@ namespace DesignPatternsInCSharp
                 Console.WriteLine(iterator.GetCurrent());
                 iterator.Next();
             };
+
+            // Strategy pattern test
+            Console.WriteLine("\nStrategy Pattern Test");
+            var imageStorage = new ImageStorage();
+            imageStorage.Store("file1", new PngCompressor(), new BlackAndWhiteFilter());
+            imageStorage.Store("file1", new JpegCompressor(), new BlackAndWhiteFilter());
+            Console.WriteLine("\n");
         }
     }
 }
