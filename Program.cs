@@ -1,6 +1,7 @@
 ﻿using DesignPatternsInCSharp.Iterator;
 using DesignPatternsInCSharp.State;
 using DesignPatternsInCSharp.Strategy;
+using DesignPatternsInCSharp.Template;
 using System;
 
 namespace DesignPatternsInCSharp
@@ -36,6 +37,11 @@ namespace DesignPatternsInCSharp
             imageStorage.Store("file1", new PngCompressor(), new BlackAndWhiteFilter());
             imageStorage.Store("file1", new JpegCompressor(), new BlackAndWhiteFilter());
             Console.WriteLine("\n");
+
+            // Template pattern test
+            Console.WriteLine("\nTemplate Pattern Test");
+            var trasferMoneyTask = new TransferMoneyTask();
+            trasferMoneyTask.Execute();
         }
     }
 }
