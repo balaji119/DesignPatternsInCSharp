@@ -1,4 +1,6 @@
-﻿using DesignPatternsInCSharp.Iterator;
+﻿using DesignPatternsInCSharp.Command;
+using DesignPatternsInCSharp.Command.Fx;
+using DesignPatternsInCSharp.Iterator;
 using DesignPatternsInCSharp.State;
 using DesignPatternsInCSharp.Strategy;
 using DesignPatternsInCSharp.Template;
@@ -42,6 +44,13 @@ namespace DesignPatternsInCSharp
             Console.WriteLine("\nTemplate Pattern Test");
             var trasferMoneyTask = new TransferMoneyTask();
             trasferMoneyTask.Execute();
+
+            // Command pattern test
+            Console.WriteLine("\nCommand Pattern Test");
+            var service = new CustomerService();
+            var command = new AddCustomerCommand(service);
+            var button = new Button(command);
+            button.Click();
         }
     }
 }
