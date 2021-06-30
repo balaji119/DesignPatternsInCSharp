@@ -1,6 +1,7 @@
 ﻿using DesignPatternsInCSharp.Command;
 using DesignPatternsInCSharp.Command.Fx;
 using DesignPatternsInCSharp.Iterator;
+using DesignPatternsInCSharp.Observer.DotNet;
 using DesignPatternsInCSharp.Observer.PullStyle;
 using DesignPatternsInCSharp.Observer.PushStyle;
 using DesignPatternsInCSharp.State;
@@ -69,6 +70,18 @@ namespace DesignPatternsInCSharp
             dsp.Attach(ob3);
             dsp.Attach(ob4);
             dsp.Data = 4;
+            // Using .Net Lib
+            var provider = new DataProvider();
+            var sub1 = new DataSubscriber1();
+            var sub2 = new DataSubscriber2();
+            sub1.Subscribe(provider);
+            sub2.Subscribe(provider);
+            provider.TrackData(new Sourse { Data = 2 });
+            sub2.Unsubscribe();
+            provider.TrackData(new Sourse { Data = 3 });
+            provider.TrackData(null);
+            provider.EndTransmission();
+            
 
         }
     }
